@@ -4,7 +4,6 @@ import (
     "io/ioutil"
     "os"
     "log"
-    "time"
 )
 
 var (
@@ -49,15 +48,4 @@ func Init(log_level string) {
     Error = log.New(errorHandle,
         "ERROR: ",
         log.Ldate|log.Ltime|log.Lshortfile)
-
-	responseCode = 200
-}
-
-func  SetResponseCode(code int) {
-	responseCode = code
-}
-
-func Elapsed(start time.Time, line string) {
-	elapsed := time.Since(start)
-	Info.Println(line, " dur:", int64(elapsed/time.Millisecond), "ms", " response: ", responseCode)
 }
